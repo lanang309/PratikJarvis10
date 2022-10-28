@@ -1,0 +1,1 @@
+Tadi Belajar backend Laraver lg bikin Model Book , Migrations create book table, bikin controller BOOK , lalu bikin databases di phpmyadmin perpustakaan_rest_api.
