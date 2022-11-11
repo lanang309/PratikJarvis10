@@ -31,3 +31,6 @@ Route::post('/books', [BookController::class, 'store']);
 
 //Get detail resource
 Route::get('/books/{id}', [BookController::class, 'show']);
+
+//edit rosources
+Route::put('books/{id}', [BookController::class, 'update']);

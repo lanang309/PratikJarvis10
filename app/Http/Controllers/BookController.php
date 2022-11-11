@@ -62,4 +62,33 @@ class BookController extends Controller
             'data' => $book
         ], 200);
     }
+
+    function update($id, Request $request){
+        //menangkap id & data reques body
+        $book = Book::find($id);
+
+        //jika id tidak ditemukan
+        if(!$book){
+            return response()->json([
+                'message' => 'Resource not found',
+                'status' => 404,
+            ], 404);
+        }
+
+        $updated = $book->update([
+            'title' => $request->title ?? $book->title,
+            'author' => $request->author ?? $book->author,
+            'publisher' => $request->publisher ?? $book->publisher,
+            'rating' => $request->rating ?? $book->rating,
+            'published_date' => $request->published_date ?? $book->published_date
+        ]);
+
+        if($updated){
+            return response()->json([
+                'message' => 'Data updated succesfuly',
+                'data' => $updated,
+                'status' => 200
+            ], 200);
+        }
+    }
 }
